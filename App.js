@@ -41,9 +41,9 @@ const LoginNavigator = createBottomTabNavigator({
 const HomeStack = createStackNavigator({
   Login: { screen: LoginNavigator },
   // Home: { screen: HomeScreen },
-  // Videos: { screen: VideosScreen },
   // Chat: { screen: WatsonScreen },
   // Rooms: { screen: RoomsScreen },
+  // Video: { screen: VideosScreen },
 },
 
   {
