@@ -30,7 +30,6 @@ class LoginScreen extends Component {
 
     onSignIn = (googleUser) => {
         console.log('Google Auth Response', googleUser);
-        Alert.alert('HI');
         // We need to register an Observer on Firebase Auth to make sure auth is initialized.
         var unsubscribe = firebase.auth().onAuthStateChanged(function(firebaseUser) {
           unsubscribe();
@@ -44,7 +43,6 @@ class LoginScreen extends Component {
             // Sign in with credential from the Google user.
             firebase.auth().signInWithCredential(credential).then(function(result) {
                 console.log('user signed in');
-                Alert.alert('NEXT TRY' + result.user.uid);
                 var userRef = firebase.database().ref('users/' + result.user.uid);
                 userRef.child('gmail').set(result.user.email);
                 userRef.child('profile_picture').set(result.additionalUserInfo.profile.picture);

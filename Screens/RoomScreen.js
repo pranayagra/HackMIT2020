@@ -46,19 +46,11 @@ const styles = StyleSheet.create({
     },
 });
 
-const Scroll = styled.ScrollView.attrs({
-    contentContainerStyle: props => {
-      return {
-        alignItems: 'center',
-        justifyContent: 'center'
-      }
-    }
-  })
-
 export default function Login({navigation}) {
     const [newRoom, setNewRoom] = useState("");
     const [roomID, setRoomID] = useState("");
-    let channelID = shortid.generate().substring(0, 4);
+    // let channelID = shortid.generate().substring(0, 4);
+    let channelID = "hack";
     
     const [visible, setVisible] = React.useState(false);
 
@@ -69,7 +61,9 @@ export default function Login({navigation}) {
 
     const joinRoom = () => {
         if (checkForRoom(roomID)) {
-            navigation.navigate("VideoScreen");
+            navigation.navigate("VideoScreen", {
+                channel: channelID,
+            });
         } else {
             alert("Invalid room!")
         }
@@ -89,27 +83,18 @@ export default function Login({navigation}) {
                     </Button>
                     <Modal visible={visible} backdropColor="black" backdropOpacity={1} onBackdropPress={() => {
                             setVisible(false);
-                            navigation.navigate('VideoScreen');
+                            navigation.navigate('VideoScreen', {
+                                channel: channelID,
+                            });
                         }}>
                         <View style={styles.createRoomContainer}>
                             <Text>We've created a new room! Copy the code below and share it with someone</Text>
-                            <Text>{roomId}</Text>
+                            <Text>{roomID}</Text>
                             <IconButton
                                 icon="content-copy"
                             />
                         </View>
                     </Modal>
-                    {/* <View style={styles.createRoomWrapper}>
-                        <TextInput
-                            style={styles.createRoomInput}
-                            label="Room ID"
-                            placeholder="Room ID"
-                            value={newRoom}
-                        />
-                        <IconButton
-                            icon="content-copy"
-                        />
-                    </View> */}
                 </View>
                 <View style={styles.joinContainer}>
                     <TextInput

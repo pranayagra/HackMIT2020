@@ -8,12 +8,12 @@ import firebase from 'firebase';
 export default function LandingPage({ navigation }) {
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Telehug</Text>
+            <Text style={styles.title}>Telehuggies</Text>
             <Image style={[styles.image, styles.marginBox]} source={require("../assets/images/icon.png")} />
             <View style={styles.actionContainer}>
                 <Button mode="contained" raised style={styles.button} onPress={() => navigation.navigate('RoomScreen')}>I want to video call someone</Button>
                 <Button mode="contained" raised style={styles.button} onPress={() => navigation.navigate('WatsonScreen')}>I just want some hugs</Button>
-                <Button mode="contained" raised style={styles.button} onPress={() => navigation.navigate('LoadingScreen')}>Testing</Button>
+                <Button mode="contained" raised style={styles.button} onPress={() => navigation.navigate('LoadingScreen')}>Sign In</Button>
                 <Button mode="contained" raised style={styles.button} onPress={() => firebase.auth().signOut()}>Sign Out</Button>
             </View>
         </View>

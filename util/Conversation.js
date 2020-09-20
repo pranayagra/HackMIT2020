@@ -35,7 +35,8 @@ async function sendMessage(message) {
 
     return chatResult.result.output.generic[0].text
 }
-sendMessage("Hi").then(data => console.log(data))
-sendMessage("I'm sad").then(data => console.log(data))
+// sendMessage("Hi").then(data => console.log(data))
+// sendMessage("I'm sad").then(data => console.log(data))
 
-module.export = {sendMessage}
+// module.exports = {sendMessage}
+exports.sendMessage = sendMessage
