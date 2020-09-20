@@ -8,31 +8,42 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@react-native-community/clipboard": "^1.2.3",
     "@react-native-community/masked-view": "0.1.10",
     "@react-navigation/native": "^5.7.3",
+    "@react-navigation/stack": "^5.9.0",
     "core-js": "^3.6.5",
     "crypto-js": "^4.0.0",
+    "dotenv": "^8.2.0",
     "expo": "^38.0.10",
     "expo-constants": "~9.1.1",
     "expo-google-app-auth": "^8.1.2",
     "expo-status-bar": "^1.0.2",
     "firebase": "7.9.0",
+    "node-sass": "^4.14.1",
+    "pubnub": "^4.29.7",
+    "pubnub-react": "^2.0.0",
     "react": "~16.11.0",
     "react-dom": "~16.11.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-38.0.2.tar.gz",
     "react-native-gesture-handler": "^1.8.0",
+    "react-native-gifted-chat": "^0.16.3",
+    "react-native-modal": "^11.5.6",
     "react-native-paper": "^4.1.0",
     "react-native-reanimated": "~1.9.0",
+    "react-native-sass-transformer": "^1.4.0",
     "react-native-screens": "~2.9.0",
     "react-native-typography": "^1.4.1",
     "react-native-web": "~0.11.7",
     "react-navigation": "^4.4.0",
     "react-navigation-stack": "^2.8.2",
-    "react-navigation-tabs": "^2.9.0"
+    "react-navigation-tabs": "^2.9.0",
+    "styled-components": "^5.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.6",
-    "babel-preset-expo": "~8.1.0"
+    "babel-preset-expo": "~8.1.0",
+    "react-native-dotenv": "^2.4.0"
   },
   "private": true
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, Image, View, Button, Dimensions, TouchableHighlight, TextInput, SafeAreaView } from 'react-native';
 import { material } from 'react-native-typography';
 
-import firestore from '../firebase';
+import firestore from '../../firebase';
 import firebase from 'firebase';
 
 const { width, height } = Dimensions.get('window')

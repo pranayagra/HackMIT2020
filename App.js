@@ -1,73 +1,54 @@
-import * as React from 'react';
-import Constants from 'expo-constants';
-import { StatusBar } from 'expo-status-bar';
-// // You can import from local files
-// // or any pure javascript modules available in npm
-import { Card } from 'react-native-paper';
-// import React, { Component } from 'react';
-import {
-  Button,
-  Dimensions,
-  Platform, StyleSheet, Text, View
-} from 'react-native';
-//import CryptoJS to generate a secure token to connect with the Temasys Platform
-// import CryptoJS from 'crypto-js';
+import React from 'react';
+// import {
+//   Button,
+//   Dimensions,
+//   Platform, StyleSheet, Text, View
+// } from 'react-native';
+import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 import 'react-native-gesture-handler';
-import { createBottomTabNavigator } from 'react-navigation-tabs';
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
+// import { createBottomTabNavigator } from 'react-navigation-tabs';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+import LandingPage from './Screens/LandingPage'
 import Login from './Screens/Login'
-import LoginWGoogle from './Screens/LoginWithGoogle'
-import LoginWFB from './Screens/LoginWithFacebook'
-import SignIn from './Screens/SignIn'
-import Guest from './Screens/Guest'
-// import HomeScreen from './Screens/HomeScreen'
+import HomeScreen from './Screens/HomeScreen'
+import WatsonScreen from './Screens/WatsonScreen'
+import VideoScreen from './Screens/VideoScreen'
+import ThanksScreen from './Screens/ThanksScreen'
+import LoadingScreen from './Screens/LoadingScreen'
 // import VideosScreen from './Screens/VideosScreen'
-// import WatsonScreen from './Screens/WatsonScreen'
-// import RoomsScreen from './Screens/RoomsScreen'
-//import the Skylink react SDK
-// import { Skylink } from './skylink_react_complete';
 
-// const skylink = new Skylink();
+import firebase from 'firebase'
+import {firebaseConfig} from './firebase'
+// firebase.initializeApp(firebaseConfig)
 
-const LoginNavigator = createBottomTabNavigator({
-  Login: { screen: Login },
-  "Sign in": { screen: SignIn },
-  "Login With Google": { screen: LoginWGoogle },
-  "Login With Facebook": { screen: LoginWFB },
-  Guest: { screen: Guest },
-})
-
-const HomeStack = createStackNavigator({
-  Login: { screen: LoginNavigator },
-  // Home: { screen: HomeScreen },
-  // Chat: { screen: WatsonScreen },
-  // Rooms: { screen: RoomsScreen },
-  // Video: { screen: VideosScreen },
-},
-
-  {
-    headerMode: 'float',
-    initialRouteName: 'Login',
-  })
-
-const AppContainer = createAppContainer(HomeStack);
-
-export default AppContainer;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingTop: Constants.statusBarHeight,
-    backgroundColor: '#ecf0f1',
-    padding: 8,
+const theme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: '#F27405',
+    primary2: '#D94929',
+    primary3: '#A63429',
+    offwhite: '#F2F2F2',
+    accent: '#737373',
   },
-  paragraph: {
-    margin: 24,
-    fontSize: 18,
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
-});
+};
+
+const Stack = createStackNavigator();
+
+export default function App() {
+  return (
+    <PaperProvider theme={theme}>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Landing">
+          <Stack.Screen name="Landing" component={LandingPage} />
+          <Stack.Screen name="Login" component={Login} />
+          <Stack.Screen name="WatsonScreen" component={WatsonScreen} />
+          <Stack.Screen name="VideoScreen" component={VideoScreen} />
+          <Stack.Screen name="ThanksScreen" component={ThanksScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </PaperProvider>
+  )
+};

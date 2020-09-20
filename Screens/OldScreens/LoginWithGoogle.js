@@ -3,6 +3,7 @@ import { StyleSheet, Text, Image, View, Button, Dimensions, TouchableHighlight, 
 import { material } from 'react-native-typography';
 import * as Google from 'expo-google-app-auth';
 import { AuthSession } from 'expo';
+import mainstyles from '../assets/styles/loginStyles';
 
 import firestore from '../firebase';
 import firebase from 'firebase';
@@ -80,50 +81,4 @@ export default class LoginWGoogle extends React.Component {
     }
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1.0,
-        flexDirection: "column",
-        backgroundColor: '#b0eeee',
-        justifyContent: 'flex-start',
-        alignItems: 'center',
-        borderRadius: 10,
-    },
-    image: {
-        flexDirection: "row",
-        justifyContent: 'center',
-        alignItems: "center",
-        width: 320,
-        height: 64,
-    },
-    text: {
-        alignItems: "flex-start",
-        flex: 1,
-        height: 0.03 * height,
-        width: 0.75 * width,
-    },
-    textColor: {
-        color: "#5f6c7b",
-    },
-    textInput: {
-        alignItems: "flex-start",
-        flex: 0.25,
-        height: 0.3 * height,
-        width: 0.75 * width,
-        color: 'black',
-        borderColor: 'gray',
-        borderWidth: 1,
-    },
-    button: {
-        alignItems: 'center',
-        backgroundColor: '#3da9fc',
-        padding: 10,
-        borderRadius: 10,
-    },
-    marginBox: {
-        marginVertical: 10,
-    },
-    red: {
-        color: "red",
-    },
-});
+const styles = StyleSheet.create(mainstyles);

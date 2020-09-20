@@ -1,0 +1,47 @@
+.container {
+    flex: 1.0;
+    flex-direction: "column";
+    background-color: '#b0eeee';
+    justify-content: 'center';
+    align-items: 'center';
+    border-radius: 10;
+}
+.image {
+    flex-direction: "row";
+    justify-content: 'center';
+    align-items: "center";
+    width: 320;
+    height: 64;
+}
+.text {
+    align-items: "flex-start";
+    flex: 1;
+    height: 3%;
+    width: 75%;
+}
+.textColor {
+    color: "#5f6c7b";
+}
+.textInput {
+    align-items: "flex-start";
+    flex: 0.25;
+    height: 30%;
+    width: 75%;
+    color: 'black';
+    border-color: 'gray';
+    border-width: 1;
+}
+.button {
+    align-items: 'center';
+    background-color: '#3da9fc';
+    padding: 0 1em;
+    border-radius: 10px;
+}
+
+.marginBox {
+    margin: 0 1em;
+}
+
+.hugeMarginBox {
+    flex: 5;
+}

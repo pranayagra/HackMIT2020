@@ -3,8 +3,7 @@ import { StyleSheet, Text, Dimensions, View, Button, Image, SafeAreaView, FlatLi
 import { material } from 'react-native-typography';
 import firestore from '../firebase';
 import firebase from 'firebase';
-
-const { width, height } = Dimensions.get('window')
+import loginstyles from '../assets/styles/loginStyles';
 
 export default class HomeScreen extends React.Component {
     static navigationOptions = ({ navigation }) => {
@@ -88,50 +87,4 @@ export default class HomeScreen extends React.Component {
     }
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1.0,
-        flexDirection: "column",
-        backgroundColor: '#b0eeee',
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 10,
-    },
-    image: {
-        flexDirection: "row",
-        justifyContent: 'center',
-        alignItems: "center",
-        width: 320,
-        height: 64,
-    },
-    text: {
-        alignItems: "flex-start",
-        flex: 1,
-        height: 0.03 * height,
-        width: 0.75 * width,
-    },
-    textColor: {
-        color: "#5f6c7b",
-    },
-    textInput: {
-        alignItems: "flex-start",
-        flex: 0.25,
-        height: 0.3 * height,
-        width: 0.75 * width,
-        color: 'black',
-        borderColor: 'gray',
-        borderWidth: 1,
-    },
-    button: {
-        alignItems: 'center',
-        backgroundColor: '#3da9fc',
-        padding: 10,
-        borderRadius: 10,
-    },
-    marginBox: {
-        marginVertical: 10,
-    },
-    hugeMarginBox: {
-        flex: 5,
-    },
-});
+const styles = StyleSheet.create(loginstyles);
