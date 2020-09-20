@@ -212,3 +212,19 @@ export default function Login({navigation}) {
     //         </TouchableHighlight>
     //     </SafeAreaView>
     // );
+
+// export default class Home extends React.Component {
+//     state = {
+//         dateTime: 0,
+//     };
+
+
+
+
+
+//     render() {
+//         return (
+
+//         );
+//     }
+// }
