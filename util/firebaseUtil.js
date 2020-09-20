@@ -1,3 +1,5 @@
+import firebase from 'firebase';
+
 function createRoom() {
     return "newRoomID";
 }

@@ -20,7 +20,9 @@
     "expo-google-app-auth": "^8.1.2",
     "expo-status-bar": "^1.0.2",
     "firebase": "7.9.0",
+    "ibm-watson": "^5.7.0",
     "node-sass": "^4.14.1",
+    "prompt-sync": "^4.2.0",
     "pubnub": "^4.29.7",
     "pubnub-react": "^2.0.0",
     "react": "~16.11.0",
@@ -38,7 +40,9 @@
     "react-navigation": "^4.4.0",
     "react-navigation-stack": "^2.8.2",
     "react-navigation-tabs": "^2.9.0",
-    "styled-components": "^5.2.0"
+    "shortid": "^2.2.15",
+    "styled-components": "^5.2.0",
+    "watson-developer-cloud": "^4.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.8.6",

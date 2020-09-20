@@ -9,6 +9,7 @@ import { GiftedChat } from 'react-native-gifted-chat'
 export default function WatsonScreen() {
     const [messages, setMessages] = useState([]);
   
+    // populate the chat with something on load
     useEffect(() => {
       setMessages([
         {
@@ -18,14 +19,27 @@ export default function WatsonScreen() {
           user: {
             _id: 2,
             name: 'React Native',
-            avatar: '',
+            avatar: '../assets/images/ibmwatson_pfp.png',
           },
         },
       ])
     }, [])
   
     const onSend = useCallback((messages = []) => {
-        console.log(messages)
+        console.log(messages)  // array consisting of one element, which contains the most recent message
+        /* format:
+        [{
+            _id: number,
+            createdAt: Date,
+            text: string,
+            user: {
+              _id: number
+              name: string,
+              avatar: string,
+            },
+          },
+        }]
+        */
       setMessages(previousMessages => GiftedChat.append(previousMessages, messages))
     }, [])
   

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { StyleSheet, Image, View, ScrollView, Text } from 'react-native';
+import { StyleSheet, Image, View, ScrollView, Text, SafeAreaView } from 'react-native';
 import { Button, TextInput, IconButton } from 'react-native-paper';
 import Modal from 'react-native-modal';
 import { material } from 'react-native-typography';
@@ -30,15 +30,11 @@ const styles = StyleSheet.create({
         marginBottom: 70,
         width: "60%",
     },
-    createRoomInput: {
-        marginTop: 30,
-        width: "80%",
-    },
-    createRoomWrapper: {
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "baseline"
-    },
+    // createRoomWrapper: {
+    //     display: "flex",
+    //     flexDirection: "row",
+    //     alignItems: "baseline"
+    // },
 
     joinContainer: {
         width: "60%",
@@ -62,7 +58,8 @@ const Scroll = styled.ScrollView.attrs({
 export default function Login({navigation}) {
     const [newRoom, setNewRoom] = useState("");
     const [roomID, setRoomID] = useState("");
-
+    let channelID = shortid.generate().substring(0, 4);
+    
     const [visible, setVisible] = React.useState(false);
 
     const generateRoom = () => {
@@ -78,73 +75,55 @@ export default function Login({navigation}) {
         }
     }
 
-    signInWithGoogleAsync = async() => {
-        try {
-          const result = await Google.logInAsync({
-            // androidClientId: YOUR_CLIENT_ID_HERE,
-            behavior: 'web',
-            iosClientId: "12933073699-g35f5a7ar26g38smmns29ckujq60fcln.apps.googleusercontent.com",
-            scopes: ['profile', 'email'],
-          });
-      
-          if (result.type === 'success') {
-            return result.accessToken;
-          } else {
-            return { cancelled: true };
-          }
-        } catch (e) {
-          return { error: true };
-        }
-      }
-
     return (
-        <ScrollView style={styles.container} scrollEnabled={true} contentContainerStyle={{
-            alignItems: 'center', 
-            justifyContent: 'center',
-            flexGrow: 1,
-        }}>
-            <Image style={[styles.logo, styles.marginBox]} source={require("../assets/images/icon.png")} />
-            <View style={styles.createContainer}>
-                <Button mode="contained" style={styles.buttonStyle} onPress={generateRoom}>
-                    Create Room
-                </Button>
-                <Modal visible={visible} onDismiss={() => navigation.navigate('VideoScreen')}>
-                    <Text>We've created a new room! Copy the code below and share it with someone</Text>
-                    <Text>{newRoom}</Text>
-                    <IconButton
-                        icon="content-copy"
-                    />
-                </Modal>
-                {/* <View style={styles.createRoomWrapper}>
+        <SafeAreaView style={{flex: 1}}>
+            <ScrollView style={styles.container} scrollEnabled={true} contentContainerStyle={{
+                alignItems: 'center', 
+                justifyContent: 'center',
+                flexGrow: 0.45,
+            }}>
+                <Image style={[styles.logo, styles.marginBox]} source={require("../assets/images/icon.png")} />
+                <View style={[styles.createContainer]}>
+                    <Button mode="contained" style={styles.buttonStyle} onPress={generateRoom}>
+                        Create Room
+                    </Button>
+                    <Modal visible={visible} backdropColor="black" backdropOpacity={1} onBackdropPress={() => {
+                            setVisible(false);
+                            navigation.navigate('VideoScreen');
+                        }}>
+                        <View style={styles.createRoomContainer}>
+                            <Text>We've created a new room! Copy the code below and share it with someone</Text>
+                            <Text>{roomId}</Text>
+                            <IconButton
+                                icon="content-copy"
+                            />
+                        </View>
+                    </Modal>
+                    {/* <View style={styles.createRoomWrapper}>
+                        <TextInput
+                            style={styles.createRoomInput}
+                            label="Room ID"
+                            placeholder="Room ID"
+                            value={newRoom}
+                        />
+                        <IconButton
+                            icon="content-copy"
+                        />
+                    </View> */}
+                </View>
+                <View style={styles.joinContainer}>
                     <TextInput
-                        style={styles.createRoomInput}
+                        style={styles.inputContainerStyle}
                         label="Room ID"
                         placeholder="Room ID"
-                        value={newRoom}
+                        onChangeText={(text) => setRoomID(text)}
                     />
-                    <IconButton
-                        icon="content-copy"
-                    />
-                </View> */}
-            </View>
-            <View style={styles.joinContainer}>
-                <TextInput
-                    style={styles.inputContainerStyle}
-                    label="Room ID"
-                    placeholder="Room ID"
-                    onChangeText={(text) => setRoomID(text)}
-                />
-                <Button mode="contained" style={styles.buttonStyle} onPress={joinRoom}>
-                    Join Room
-                </Button>
-            </View>
-            <View style={styles.container}>
-                <Button
-                    title="Sign In With Google"
-                    onPress={() => this.signInWithGoogleAsync()}
-                />
-            </View>
-        </ScrollView>
+                    <Button mode="contained" style={styles.buttonStyle} onPress={joinRoom}>
+                        Join Room
+                    </Button>
+                </View>
+            </ScrollView>
+        </SafeAreaView>
     )
 }
 

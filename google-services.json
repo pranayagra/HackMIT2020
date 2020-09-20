@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "12933073699",
+    "firebase_url": "https://hackmit2020telehuggies.firebaseio.com",
+    "project_id": "hackmit2020telehuggies",
+    "storage_bucket": "hackmit2020telehuggies.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:12933073699:android:b93d22bed34af8b4815a96",
+        "android_client_info": {
+          "package_name": "com.hackmit2020"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "12933073699-o9827ne6uiac0t63gavllsqncqn44edt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hackmit2020",
+            "certificate_hash": "b631132aa2f4dd5af6d6638dcc9cb496aaa8c77a"
+          }
+        },
+        {
+          "client_id": "12933073699-lq5f9o9lf5ori2q23vhtmr4lr7nl7taj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAI7aR6nTKACfAGn7UmDlgjm8FRL7m0__Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "12933073699-o1j09vvls4bktdlhkbmdcsqcm372eb1j.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "12933073699-g35f5a7ar26g38smmns29ckujq60fcln.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "host.exp.exponent"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

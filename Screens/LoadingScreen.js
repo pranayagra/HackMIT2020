@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { StyleSheet, Text, Image, View, TouchableHighlight, Dimensions, SafeAreaView, ActivityIndicator } from 'react-native';
 import firebase from 'firebase'
+import * as Google from "expo-google-app-auth"
 
 class LoadingScreen extends Component {
 
@@ -11,9 +12,9 @@ class LoadingScreen extends Component {
     checkIfLoggedIn = () => {
         firebase.auth().onAuthStateChanged(user => {
             if (user) {
-                this.props.navigation.navigate('HomeScreen');
+                this.props.navigation.navigate('LandingScreen');
             } else {
-                this.props.navigation.navigate('Login');
+                this.props.navigation.navigate('LoginScreen');
             }
         });
     };
@@ -26,7 +27,7 @@ class LoadingScreen extends Component {
         );
     }
 }
-export default LoadingScreen
+export default LoadingScreen;
 
 const styles = StyleSheet.create({
     container: {

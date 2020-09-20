@@ -3,6 +3,7 @@ import { StyleSheet, Text, Image, View, TouchableHighlight, Dimensions, SafeArea
 import { Button, TextInput } from 'react-native-paper';
 import { material } from 'react-native-typography';
 import loginstyles from '../assets/styles/loginStyles';
+import firebase from 'firebase';
 
 export default function LandingPage({ navigation }) {
     return (
@@ -10,8 +11,10 @@ export default function LandingPage({ navigation }) {
             <Text style={styles.title}>Telehug</Text>
             <Image style={[styles.image, styles.marginBox]} source={require("../assets/images/icon.png")} />
             <View style={styles.actionContainer}>
-                <Button mode="contained" style={styles.button} onPress={() => navigation.navigate('Login')}>I want to video call someone</Button>
-                <Button mode="contained" style={styles.button} onPress={() => navigation.navigate('WatsonScreen')}>I just want some hugs</Button>
+                <Button mode="contained" raised style={styles.button} onPress={() => navigation.navigate('RoomScreen')}>I want to video call someone</Button>
+                <Button mode="contained" raised style={styles.button} onPress={() => navigation.navigate('WatsonScreen')}>I just want some hugs</Button>
+                <Button mode="contained" raised style={styles.button} onPress={() => navigation.navigate('LoadingScreen')}>Testing</Button>
+                <Button mode="contained" raised style={styles.button} onPress={() => firebase.auth().signOut()}>Sign Out</Button>
             </View>
         </View>
     )

@@ -17,7 +17,16 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "config":{
+        "googleSignIn": {
+          "reservedClientId": "com.googleusercontent.apps.12933073699-g35f5a7ar26g38smmns29ckujq60fcln"
+        }
+      }
+    },
+    "android": {
+      "package": "com.example.android.loginsetup",
+      "googleServicesFile": "./google-services.json"
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
